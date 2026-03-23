@@ -5,75 +5,121 @@
   <title>Advance Financial Lighthouse – SEO Console</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --card: #11162a;
+      --border: #252b45;
+      --text: #f5f5f5;
+      --muted: #9aa2c8;
+      --accent: #f5c14b;
+      --pill-bg: #1f2745;
+      --pill-text: #c4cbf0;
+      --danger: #ff6b6b;
+      --ok: #4cd964;
+    }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #0b1020;
-      color: #f5f5f5;
+      background: radial-gradient(circle at top, #151a30 0, #050816 55%);
+      color: var(--text);
     }
     header {
-      padding: 1.5rem 2rem;
-      background: #11162a;
-      border-bottom: 1px solid #252b45;
+      padding: 1.5rem 2rem 1rem;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(to right, #11162a, #050816);
     }
     header h1 {
       margin: 0;
       font-size: 1.4rem;
     }
     header p {
-      margin: 0.25rem 0 0;
+      margin: 0.4rem 0 0;
       font-size: 0.9rem;
-      color: #a9b0d0;
+      color: var(--muted);
+      max-width: 640px;
     }
     main {
       padding: 1.5rem 2rem 3rem;
       max-width: 1100px;
       margin: 0 auto;
     }
+    .section-title {
+      margin: 1.5rem 0 0.5rem;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+    .section-note {
+      margin: 0 0 0.75rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
     .card {
-      background: #151a30;
-      border: 1px solid #252b45;
+      background: var(--card);
+      border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 1rem 1.2rem;
+      padding: 0.9rem 1rem;
     }
     .card h2 {
-      margin: 0 0 0.4rem;
-      font-size: 0.9rem;
+      margin: 0 0 0.3rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: #a9b0d0;
+      letter-spacing: 0.08em;
+      color: var(--muted);
     }
-    .card .value {
+    .value-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+    }
+    .value {
       font-size: 1.6rem;
       font-weight: 600;
+    }
+    .delta {
+      font-size: 0.8rem;
+      padding: 0.1rem 0.4rem;
+      border-radius: 999px;
+    }
+    .delta.up {
+      background: rgba(76, 217, 100, 0.12);
+      color: var(--ok);
+    }
+    .delta.down {
+      background: rgba(255, 107, 107, 0.12);
+      color: var(--danger);
     }
     .card .note {
       margin-top: 0.4rem;
       font-size: 0.8rem;
-      color: #8b92b5;
+      color: var(--muted);
     }
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 0.5rem;
-      font-size: 0.9rem;
+      margin-top: 0.4rem;
+      font-size: 0.85rem;
     }
     th, td {
-      padding: 0.5rem 0.6rem;
-      border-bottom: 1px solid #252b45;
+      padding: 0.45rem 0.5rem;
+      border-bottom: 1px solid var(--border);
       text-align: left;
+      vertical-align: top;
     }
     th {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: #a9b0d0;
+      letter-spacing: 0.08em;
+      color: var(--muted);
     }
     tr:last-child td {
       border-bottom: none;
@@ -83,89 +129,225 @@
       padding: 0.1rem 0.5rem;
       border-radius: 999px;
       font-size: 0.75rem;
-      background: #1f2745;
-      color: #c4cbf0;
+      background: var(--pill-bg);
+      color: var(--pill-text);
+    }
+    .tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.8rem;
     }
     footer {
       padding: 1rem 2rem 2rem;
       font-size: 0.8rem;
-      color: #7c84a8;
+      color: var(--muted);
       max-width: 1100px;
       margin: 0 auto;
+      border-top: 1px solid var(--border);
+    }
+    @media (max-width: 640px) {
+      header, main, footer { padding-left: 1rem; padding-right: 1rem; }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Advance Financial Lighthouse – Organic Visibility Console</h1>
-    <p>High‑level snapshot of how people are finding you and what’s working.</p>
+    <h1>Advance Financial Lighthouse – SEO Progress Console</h1>
+    <p>
+      Weekly snapshot for you and Kathy: what changed, what’s working, and what you’re doing next.
+      Update this once a week in GitHub; the URL stays the same.
+    </p>
   </header>
 
   <main>
+    <!-- SECTION 1: TOPLINE PROGRESS -->
+    <div class="section-title">Topline progress (last 28 days)</div>
+    <p class="section-note">
+      Pull these from Search Console or whatever you’re using. This answers: “Are more people finding us and clicking through?”
+    </p>
+
     <section class="grid">
       <article class="card">
-        <h2>Organic clicks (last 28 days)</h2>
-        <div class="value">–</div>
-        <div class="note">Manual entry for now. Replace with your latest total from Search Console or analytics.</div>
+        <h2>Organic impressions</h2>
+        <div class="value-row">
+          <!-- Replace 0 with your total impressions -->
+          <div class="value">0</div>
+          <!-- Replace +0% with your change vs previous 28 days -->
+          <div class="delta up">+0%</div>
+        </div>
+        <div class="note">How many times your site appeared in search results.</div>
       </article>
 
       <article class="card">
-        <h2>Top landing page</h2>
-        <div class="value">/</div>
-        <div class="note">Paste the URL path that brings in the most qualified visitors.</div>
+        <h2>Organic clicks</h2>
+        <div class="value-row">
+          <!-- Replace 0 with your total clicks -->
+          <div class="value">0</div>
+          <!-- Replace +0% with your change vs previous 28 days -->
+          <div class="delta up">+0%</div>
+        </div>
+        <div class="note">How many times people actually clicked through.</div>
       </article>
 
       <article class="card">
-        <h2>Priority keyword</h2>
-        <div class="value">“advance financial lighthouse”</div>
-        <div class="note">Use this to track how well your name and core phrase are surfacing.</div>
+        <h2>Leads from organic</h2>
+        <div class="value-row">
+          <!-- Replace 0 with your best estimate of leads from organic -->
+          <div class="value">0</div>
+        </div>
+        <div class="note">Rough count of inquiries you believe came from search.</div>
       </article>
 
       <article class="card">
-        <h2>Next SEO action</h2>
-        <div class="value">Clarify homepage promise</div>
-        <div class="note">One concrete thing you’ll do this week. Keep it small and real.</div>
+        <h2>Overall direction</h2>
+        <div class="value-row">
+          <!-- Replace “Holding steady” with your honest summary -->
+          <div class="value" style="font-size:1.1rem;">Holding steady</div>
+        </div>
+        <div class="note">One-line gut check: up, down, or flat – and how that feels.</div>
       </article>
     </section>
 
+    <!-- SECTION 2: KEY PAGES -->
+    <div class="section-title">Key pages to watch</div>
+    <p class="section-note">
+      These are the pages you expect to carry the weight. Update “Status” and “Notes” as you work.
+    </p>
+
     <section class="card">
-      <h2>Key pages to watch</h2>
       <table>
         <thead>
           <tr>
             <th>Page</th>
             <th>Role</th>
+            <th>Status</th>
             <th>Notes</th>
           </tr>
         </thead>
         <tbody>
+          <!-- Row 1 -->
           <tr>
-            <td>/</td>
+            <td class="mono">/</td>
             <td><span class="pill">Home</span></td>
-            <td>Core promise, who you serve, and why you’re different.</td>
+            <!-- Replace “Needs clarity” with current state -->
+            <td><span class="pill">Needs clarity</span></td>
+            <!-- Replace note with what you’re aiming to fix -->
+            <td>Sharpen promise and who you serve above the fold.</td>
           </tr>
+          <!-- Row 2 -->
           <tr>
-            <td>/services</td>
+            <td class="mono">/services</td>
             <td><span class="pill">Services</span></td>
-            <td>Make each offer legible in plain language.</td>
+            <td><span class="pill">Drafting</span></td>
+            <td>Make each offer legible in plain language, one per section.</td>
           </tr>
+          <!-- Row 3 -->
           <tr>
-            <td>/about</td>
+            <td class="mono">/about</td>
             <td><span class="pill">Trust</span></td>
-            <td>Signals of credibility, story, and alignment with the visitor.</td>
+            <td><span class="pill">OK</span></td>
+            <td>Check that story matches the people you actually want.</td>
           </tr>
+          <!-- Row 4 -->
           <tr>
-            <td>/contact</td>
+            <td class="mono">/contact</td>
             <td><span class="pill">Conversion</span></td>
-            <td>Make the next step feel safe, clear, and low‑pressure.</td>
+            <td><span class="pill">Light</span></td>
+            <td>Make the next step feel low-pressure and specific.</td>
           </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SECTION 3: PRIORITY KEYWORDS -->
+    <div class="section-title">Priority keywords</div>
+    <p class="section-note">
+      These are the phrases you actually care about. This answers: “Are we showing up for the right searches?”
+    </p>
+
+    <section class="card">
+      <table>
+        <thead>
+          <tr>
+            <th>Keyword</th>
+            <th>Intent</th>
+            <th>Status</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Example row: your name -->
+          <tr>
+            <td class="mono">“advance financial lighthouse”</td>
+            <td><span class="pill">Brand</span></td>
+            <td><span class="pill">Must win</span></td>
+            <td>Should reliably show your site in top positions.</td>
+          </tr>
+          <!-- Example row: local intent -->
+          <tr>
+            <td class="mono">“financial planner omaha”</td>
+            <td><span class="pill">Local</span></td>
+            <td><span class="pill">Long-term</span></td>
+            <td>Ambitious; track impressions and slow movement up.</td>
+          </tr>
+          <!-- Example row: niche phrase -->
+          <tr>
+            <td class="mono">“values-based financial planning”</td>
+            <td><span class="pill">Niche</span></td>
+            <td><span class="pill">Exploring</span></td>
+            <td>Good fit for your positioning; watch for early impressions.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SECTION 4: WEEKLY ACTION LOG -->
+    <div class="section-title">Weekly action log</div>
+    <p class="section-note">
+      This is the spine of the console. Each week, add one row: what you did, what changed, and what you’ll do next.
+    </p>
+
+    <section class="card">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Action taken</th>
+            <th>Observed change</th>
+            <th>Next focus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Example starter row – replace with your real first week -->
+          <tr>
+            <td class="mono">2026‑03‑23</td>
+            <td>Defined core pages and built this console.</td>
+            <td>Baseline only – no change yet, just orientation.</td>
+            <td>Clarify homepage promise and service language.</td>
+          </tr>
+          <!-- Add a new row each week above or below this comment -->
+          <!--
+          <tr>
+            <td class="mono">YYYY‑MM‑DD</td>
+            <td>What you actually did.</td>
+            <td>What you saw change (numbers or gut feel).</td>
+            <td>The one thing you’ll focus on next.</td>
+          </tr>
+          -->
         </tbody>
       </table>
     </section>
   </main>
 
   <footer>
-    This console is static for now. Once you’re ready, we can wire it to real data (CSV, Sheets, or an API) without changing the URL.
+    Update this console once a week. It doesn’t have to be perfect – it just has to be honest.
+    Over time, this becomes the shared memory of what you and Kathy actually did and what it changed.
   </footer>
 </body>
 </html>
+
