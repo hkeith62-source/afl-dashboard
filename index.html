@@ -509,6 +509,24 @@
     Internal SEO Operations Console for Advance Financial Lighthouse 
   </div>
   </footer>
+  <!-- Firebase SDKs -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCBEYKod5Us0h03oRfAhtlimProBFzPgF4",
+    authDomain: "afl-dashboard-20d0c.firebaseapp.com",
+    projectId: "afl-dashboard-20d0c",
+    storageBucket: "afl-dashboard-20d0c.firebasestorage.app",
+    messagingSenderId: "183643628887",
+    appId: "1:183643628887:web:1392f7fceb9dc34d5eca12"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+</script>
+
 </body>
 </html>
 
