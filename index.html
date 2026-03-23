@@ -63,6 +63,13 @@
       gap: 1rem;
       margin-bottom: 1.5rem;
     }
+    .two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
     .card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -168,33 +175,37 @@
     <!-- SECTION 1: TOPLINE PROGRESS -->
     <div class="section-title">Topline progress (last 28 days)</div>
     <div class="section-title">Technician Status</div>
-<section class="card">
-  <h2>Clock-in Status</h2>
-  <div class="value-row">
-    <div id="tech-status" class="value" style="font-size:1.2rem;">Loading...</div>
-  </div>
-  <div class="note">Last update: <span id="tech-time">—</span></div>
+ <div class="two-col">
+  
+  <section class="card">
+    <h2>Clock-in Status</h2>
+    <div class="value-row">
+      <div id="tech-status" class="value" style="font-size:1.2rem;">Loading...</div>
+    </div>
+    <div class="note">Last update: <span id="tech-time">—</span></div>
 
-  <div style="margin-top:1rem; display:flex; gap:0.5rem;">
-    <button onclick="clockIn()" style="padding:0.4rem 0.8rem; background:var(--ok); border:none; border-radius:6px; cursor:pointer;">
-      Clock In
+    <div style="margin-top:1rem; display:flex; gap:0.5rem;">
+      <button onclick="clockIn()" style="padding:0.4rem 0.8rem; background:var(--ok); border:none; border-radius:6px; cursor:pointer;">
+        Clock In
+      </button>
+      <button onclick="clockOut()" style="padding:0.4rem 0.8rem; background:var(--danger); border:none; border-radius:6px; cursor:pointer;">
+        Clock Out
+      </button>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>SEO Strategy</h2>
+    <p class="note">Click to view the full SEO Strategy document.</p>
+
+    <button 
+      onclick="window.open('strategy/SEO-Strategy.html', '_blank')" 
+      style="padding:0.6rem 1rem; background:var(--accent); border:none; border-radius:6px; cursor:pointer; font-size:1rem;">
+      Open SEO Strategy
     </button>
-    <button onclick="clockOut()" style="padding:0.4rem 0.8rem; background:var(--danger); border:none; border-radius:6px; cursor:pointer;">
-      Clock Out
-    </button>
-  </div>
-</section>
-    <section class="card">
-  <h2>SEO Strategy</h2>
-  <p class="note">Click to view the full SEO Strategy document.</p>
+  </section>
 
-  <button 
-    onclick="window.open('strategy/SEO-Strategy.html', '_blank')" 
-    style="padding:0.6rem 1rem; background:var(--accent); border:none; border-radius:6px; cursor:pointer; font-size:1rem;">
-    Open SEO Strategy
-  </button>
-</section>
-
+</div>
 
     <p class="section-note">
       The numbers below are derived from Google Console.
