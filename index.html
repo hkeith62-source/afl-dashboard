@@ -167,6 +167,24 @@
   <main>
     <!-- SECTION 1: TOPLINE PROGRESS -->
     <div class="section-title">Topline progress (last 28 days)</div>
+    <div class="section-title">Technician Status</div>
+<section class="card">
+  <h2>Clock-in Status</h2>
+  <div class="value-row">
+    <div id="tech-status" class="value" style="font-size:1.2rem;">Loading...</div>
+  </div>
+  <div class="note">Last update: <span id="tech-time">—</span></div>
+
+  <div style="margin-top:1rem; display:flex; gap:0.5rem;">
+    <button onclick="clockIn()" style="padding:0.4rem 0.8rem; background:var(--ok); border:none; border-radius:6px; cursor:pointer;">
+      Clock In
+    </button>
+    <button onclick="clockOut()" style="padding:0.4rem 0.8rem; background:var(--danger); border:none; border-radius:6px; cursor:pointer;">
+      Clock Out
+    </button>
+  </div>
+</section>
+
     <p class="section-note">
       The numbers below are derived from Google Console.
     </p>
@@ -526,6 +544,57 @@
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
 </script>
+<!-- Firebase + Real-time Clock-In System -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+  // Your Firebase config
+  const firebaseConfig = {
+    apiKey: "AIzaSyCBEYKod5Us0h03oRfAhtlimProBFzPgF4",
+    authDomain: "afl-dashboard-20d0c.firebaseapp.com",
+    projectId: "afl-dashboard-20d0c",
+    storageBucket: "afl-dashboard-20d0c.firebasestorage.app",
+    messagingSenderId: "183643628887",
+    appId: "1:183643628887:web:1392f7fceb9dc34d5eca12"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+
+  // Clock-in functions
+  const statusRef = ref(db, "technicianStatus");
+
+  function clockIn() {
+    set(statusRef, {
+      status: "Clocked In",
+      timestamp: Date.now()
+    });
+  }
+
+  function clockOut() {
+    set(statusRef, {
+      status: "Clocked Out",
+      timestamp: Date.now()
+    });
+  }
+
+  // Listen for real-time updates
+  onValue(statusRef, (snapshot) => {
+    const data = snapshot.val();
+    if (!data) return;
+
+    const statusEl = document.getElementById("tech-status");
+    const timeEl = document.getElementById("tech-time");
+
+    statusEl.textContent = data.status;
+
+    const date = new Date(data.timestamp);
+    timeEl.textContent = date.toLocaleString();
+  });
+</script>
+
 
 </body>
 </html>
