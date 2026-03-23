@@ -527,11 +527,12 @@
     Internal SEO Operations Console for Advance Financial Lighthouse 
   </div>
   </footer>
-  <!-- Firebase SDKs -->
-<script type="module">
+  
+  <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
   import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
+  // Firebase config
   const firebaseConfig = {
     apiKey: "AIzaSyCBEYKod5Us0h03oRfAhtlimProBFzPgF4",
     authDomain: "afl-dashboard-20d0c.firebaseapp.com",
@@ -541,61 +542,40 @@
     appId: "1:183643628887:web:1392f7fceb9dc34d5eca12"
   };
 
-  const app = initializeApp(firebaseConfig);
-  const db = getDatabase(app);
-</script>
-<!-- Firebase + Real-time Clock-In System -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-  import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
-
-  // Your Firebase config
-  const firebaseConfig = {
-    apiKey: "AIzaSyCBEYKod5Us0h03oRfAhtlimProBFzPgF4",
-    authDomain: "afl-dashboard-20d0c.firebaseapp.com",
-    projectId: "afl-dashboard-20d0c",
-    storageBucket: "afl-dashboard-20d0c.firebasestorage.app",
-    messagingSenderId: "183643628887",
-    appId: "1:183643628887:web:1392f7fceb9dc34d5eca12"
-  };
-
-  // Initialize Firebase
+  // Init
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
 
-  // Clock-in functions
-  const statusRef = ref(db, "technicianStatus");
-
+  // Functions
   function clockIn() {
-    set(statusRef, {
+    set(ref(db, "technicianStatus"), {
       status: "Clocked In",
       timestamp: Date.now()
     });
   }
 
   function clockOut() {
-    set(statusRef, {
+    set(ref(db, "technicianStatus"), {
       status: "Clocked Out",
       timestamp: Date.now()
     });
   }
 
-  // Listen for real-time updates
-  onValue(statusRef, (snapshot) => {
+  // Listener
+  onValue(ref(db, "technicianStatus"), (snapshot) => {
     const data = snapshot.val();
     if (!data) return;
 
-    const statusEl = document.getElementById("tech-status");
-    const timeEl = document.getElementById("tech-time");
-
-    statusEl.textContent = data.status;
-
-    const date = new Date(data.timestamp);
-    timeEl.textContent = date.toLocaleString();
+    document.getElementById("tech-status").textContent = data.status;
+    document.getElementById("tech-time").textContent =
+      new Date(data.timestamp).toLocaleString();
   });
+
+  // Expose to window
   window.clockIn = clockIn;
   window.clockOut = clockOut;
 </script>
+
 </body>
 </html>
 
