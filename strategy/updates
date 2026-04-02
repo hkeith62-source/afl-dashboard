@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Upcoming Sunday Updates</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+    margin: 0;
+    padding: 2rem;
+    color: #333;
+  }
+
+  h1 {
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+  }
+
+  .date-box {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 0.75rem;
+    background: #fff;
+    border-left: 4px solid #4a90e2;
+    display: inline-block;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    background: #fff;
+  }
+
+  th {
+    background: #4a90e2;
+    color: #fff;
+    padding: 0.75rem;
+    text-align: left;
+    font-size: 1.1rem;
+  }
+
+  td {
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+    vertical-align: top;
+  }
+
+  .section-title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  .notes {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+</style>
+</head>
+
+<body>
+
+<h1>Upcoming Sunday Updates</h1>
+
+<div class="date-box">
+  <strong>Date:</strong> April 6, 2026
+</div>
+
+<table>
+  <tr>
+    <th>Summary of Work Done / Tasks Accomplished</th>
+  </tr>
+  <tr>
+    <td>
+      <div class="notes">
+        <!-- Add your completed tasks here -->
+        • Reviewed homepage structure and identified SEO opportunities.<br>
+        • Updated meta descriptions for key service pages.<br>
+        • Audited internal links and fixed broken paths.<br>
+        <!-- Add or remove lines as needed -->
+      </div>
+    </td>
+  </tr>
+
+  <tr>
+    <th>What’s Next</th>
+  </tr>
+  <tr>
+    <td>
+      <div class="notes">
+        <!-- Add your upcoming tasks here -->
+        • Implement homepage content adjustments.<br>
+        • Optimize image alt text across the site.<br>
+        • Prepare next week’s keyword expansion plan.<br>
+        <!-- Add or remove lines as needed -->
+      </div>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
