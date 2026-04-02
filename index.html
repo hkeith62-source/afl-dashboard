@@ -89,6 +89,18 @@
       align-items: baseline;
       gap: 0.4rem;
     }
+    /* Wrapper for the two right-side cards */
+.right-side-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* Make the two cards match each other */
+.right-side-cards .card {
+  height: 100%;
+}
+
     .value {
       font-size: 1.6rem;
       font-weight: 600;
@@ -194,7 +206,25 @@
       </button>
     </div>
   </section>
-
+   <div class="right-side-cards">
+  <section class="card upcoming-updates-card">
+    <h2>Upcoming Sunday Updates</h2>
+    <p class="note">Click to view this week's planned updates.</p>
+    <button 
+      onclick="window.open('updates/upcoming-sunday.html', '_blank')" 
+      class="updates-btn">
+      View Updates
+    </button>
+  </section>
+  <section class="card seo-strategy-card">
+    <h2>SEO Strategy</h2>
+    <button 
+      onclick="window.open('strategy/seo-strategy.html', '_blank')" 
+      class="strategy-btn">
+      Open Strategy
+    </button>
+  </section>
+</div>
   <section class="card">
     <h2>SEO Strategy</h2>
     <p class="note">Click to view the full SEO Strategy document.</p>
