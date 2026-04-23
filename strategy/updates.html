@@ -11,12 +11,10 @@
     padding: 2rem;
     color: #333;
   }
-
   h1 {
     margin-bottom: 0.5rem;
     font-size: 1.8rem;
   }
-
   .date-box {
     font-size: 1rem;
     margin-bottom: 1.5rem;
@@ -25,14 +23,12 @@
     border-left: 4px solid #4a90e2;
     display: inline-block;
   }
-
   table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 1.5rem;
     background: #fff;
   }
-
   th {
     background: #4a90e2;
     color: #fff;
@@ -40,34 +36,37 @@
     text-align: left;
     font-size: 1.1rem;
   }
-
   td {
     padding: 1rem;
     border-bottom: 1px solid #ddd;
     vertical-align: top;
   }
-
   .section-title {
     font-weight: bold;
     margin-bottom: 0.5rem;
     font-size: 1.1rem;
   }
-
   .notes {
     font-size: 0.95rem;
     line-height: 1.5;
   }
+  .session-label {
+    font-weight: bold;
+    color: #4a90e2;
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+    font-size: 1rem;
+  }
+  .session-label:first-child {
+    margin-top: 0;
+  }
 </style>
 </head>
-
 <body>
-
 <h1>Today's Update</h1>
-
 <div class="date-box">
-  <strong>Date:</strong> April 12, 15 2026
+  <strong>Last Updated:</strong> April 23, 2026
 </div>
-
 <table>
   <tr>
     <th>Summary of Work Done</th>
@@ -75,47 +74,73 @@
   <tr>
     <td>
       <div class="notes">
-        <!-- Add your completed tasks here -->
-        April 12- URL Cleanup
-Triaged 519 not-indexed URLs across 7 Search Console categories (Keep 338, Noindex/Remove 159, Improve 12, Canonicalize/Redirect 10)
-Resolved 71 5xx server errors — single FMG syndicated article hidden
-Hid 54 off-strategy FMG resource center articles (first batch) plus remaining resource center articles (second batch)
-Client independently deleted 274 pages — all were already not-indexed, low impact
-Search Console not-indexed count dropped from 521 to 478  
-About Page
-Optimized with target keyword "Financial Advisor Oklahoma City" — document (AFL_About_Page_v4.docx) sent to client for implementation
-        <br>
-        April 15- Google Business Profile Optimization
-Every field completed: description rewritten (748 chars with keywords and compliance disclosures), categories set (Financial advisor primary, Financial planner and Investment service secondary), 39 services configured (18 custom keyword-targeted, 21 Google-added verified), hours corrected, URL updated to https, "Inc." removed from business name
-Photos uploaded: 4 new (Kathy headshot, blue suit, presenting, team photo) — replacing 4+ year stale gallery
-Social links updated: dead Facebook removed, Instagram added
-Service areas: 10 Oklahoma cities added
-Attributes: Women-owned and Black-owned activated
-First Google Post published targeting women niche with Book CTA
-Review-request template: not yet drafted — locked for next session
-        <!-- Add or remove lines as needed -->
+
+        <div class="session-label">April 12 — URL Cleanup</div>
+        Triaged 519 not-indexed URLs across 7 Search Console categories (Keep 338, Noindex/Remove 159, Improve 12, Canonicalize/Redirect 10)<br>
+        Resolved 71 5xx server errors — single FMG syndicated article hidden<br>
+        Hid 54 off-strategy FMG resource center articles (first batch) plus remaining resource center articles (second batch)<br>
+        Client independently deleted 274 pages — all were already not-indexed, low impact<br>
+        Search Console not-indexed count dropped from 521 to 478
+
+        <div class="session-label">April 15 — Google Business Profile Optimization</div>
+        Every field completed: description rewritten (748 chars with keywords and compliance disclosures), categories set (Financial advisor primary, Financial planner and Investment service secondary), 39 services configured (18 custom keyword-targeted, 21 Google-added verified), hours corrected, URL updated to https, "Inc." removed from business name<br>
+        Photos uploaded: 4 new (Kathy headshot, blue suit, presenting, team photo) — replacing 4+ year stale gallery<br>
+        Social links updated: dead Facebook removed, Instagram added<br>
+        Service areas: 10 Oklahoma cities added<br>
+        Attributes: Women-owned and Black-owned activated<br>
+        First Google Post published targeting women niche with Book CTA<br>
+        Review-request template: not yet drafted — locked for next session
+
+        <div class="session-label">April 16 (Wednesday) — About Page</div>
+        Optimized with target keyword "Financial Advisor Oklahoma City" — document (AFL_About_Page_v4.docx) sent to client for implementation
+
+        <div class="session-label">April 20 (Sunday) — Homepage Build</div>
+        Full homepage built from scratch — SEO-optimized, firm-forward branding, fiduciary positioning<br>
+        Title tag, meta description, canonical tag, H1, H2 hierarchy all implemented<br>
+        Four niche sections built with alternating photo/content layout: Women, Retirement Couples, Federal Employee, African American<br>
+        Keyword-optimized copy across all sections — Tier 1 keywords targeted throughout<br>
+        Internal anchor text links added to all four niche sections pointing to future service pages<br>
+        Alt text added to all images via proper img tags (not CSS background — Google can now read them)<br>
+        Three schema blocks added: FinancialService, Service ItemList (5 services), FAQPage (5 Q&As)<br>
+        All five section photos selected, cropped, and named correctly<br>
+        Dashboard updated: AFL Homepage preview button added, clock-in fixed
+
+        <div class="session-label">April 23 (Thursday) — Homepage Finalized + Dashboard Fix</div>
+        Homepage photo selection finalized — all five images in place<br>
+        African American section photo resolved after extensive review<br>
+        Dashboard clock-in repaired — Firebase rules had expired April 22, rules updated to active<br>
+        AFL homepage uploaded to GitHub repo at afl/index.html — accessible via dashboard Preview button<br>
+        Homepage ready for client review
+
       </div>
     </td>
   </tr>
-
   <tr>
-    <th>What’s Next</th>
+    <th>What's Next</th>
   </tr>
   <tr>
     <td>
       <div class="notes">
-        <!-- Add your upcoming tasks here -->
-          Core Page Rebuild
-Build the Master URL Map from indexed pages — working document for metadata rewrites and content improvements
-Metadata rewrites for indexed pages (parked until index count stabilizes at 56)
-Federal employee page rebuild
-Homepage rewrite
-Week 1 content: /financial-planning-for-women
-        <!-- Add or remove lines as needed -->
+
+        <div class="session-label">April 23 (Thursday Tonight) — About Page Build</div>
+        Build the About page — photos already selected by client<br>
+        Firm-forward branding throughout — team practice positioning<br>
+        Target keyword: "Financial Advisor Oklahoma City"<br>
+        Schema markup to be added consistent with homepage
+
+        <div class="session-label">April 27 (Sunday) — Service Pages Begin + Review</div>
+        Begin service page builds — priority order based on Tier 1 keyword scores:<br>
+        1. /financial-planning-for-women (score 19, Low competition)<br>
+        2. /retirement-planning (score 19, Low competition)<br>
+        3. /federal-employee-retirement-planning (score 16, Low-Medium)<br>
+        4. /african-american-financial-advisor (score 16, Medium)<br>
+        Google Business Profile review-request template — locked from April 15<br>
+        Metadata rewrites for indexed pages (parked until index count stabilizes at 56)
+
       </div>
     </td>
   </tr>
 </table>
-
 </body>
 </html>
+
