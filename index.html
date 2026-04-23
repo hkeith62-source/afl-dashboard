@@ -744,55 +744,33 @@
   </div>
   </footer>
   
-  <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-  import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
-
-  // Firebase config
-  const firebaseConfig = {
-    apiKey: "AIzaSyCBEYKod5Us0h03oRfAhtlimProBFzPgF4",
-    authDomain: "afl-dashboard-20d0c.firebaseapp.com",
-    databaseURL: "https://afl-dashboard-20d0c-default-rtdb.firebaseio.com",
-    projectId: "afl-dashboard-20d0c",
-    storageBucket: "afl-dashboard-20d0c.firebasestorage.app",
-    messagingSenderId: "183643628887",
-    appId: "1:183643628887:web:1392f7fceb9dc34d5eca12"
-  };
-
-  // Init
-  const app = initializeApp(firebaseConfig);
-  const db = getDatabase(app);
-
-  // Functions
+  <script>
   function clockIn() {
-    set(ref(db, "technicianStatus"), {
-      status: "Clocked In",
-      timestamp: Date.now()
-    });
+    const now = new Date().toLocaleString();
+    localStorage.setItem('techStatus', 'Clocked In');
+    localStorage.setItem('techTime', now);
+    updateDisplay();
   }
 
   function clockOut() {
-    set(ref(db, "technicianStatus"), {
-      status: "Clocked Out",
-      timestamp: Date.now()
-    });
+    const now = new Date().toLocaleString();
+    localStorage.setItem('techStatus', 'Clocked Out');
+    localStorage.setItem('techTime', now);
+    updateDisplay();
   }
 
-  // Listener
-  onValue(ref(db, "technicianStatus"), (snapshot) => {
-    const data = snapshot.val();
-    if (!data) return;
+  function updateDisplay() {
+    const status = localStorage.getItem('techStatus') || 'Not Set';
+    const time = localStorage.getItem('techTime') || '—';
+    document.getElementById('tech-status').textContent = status;
+    document.getElementById('tech-time').textContent = time;
+    document.getElementById('tech-status').style.color = 
+      status === 'Clocked In' ? 'var(--ok)' : 'var(--danger)';
+  }
 
-    document.getElementById("tech-status").textContent = data.status;
-    document.getElementById("tech-time").textContent =
-      new Date(data.timestamp).toLocaleString();
-  });
-
-  // Expose to window
-  window.clockIn = clockIn;
-  window.clockOut = clockOut;
+  // Load on page open
+  updateDisplay();
 </script>
 
 </body>
 </html>
-
