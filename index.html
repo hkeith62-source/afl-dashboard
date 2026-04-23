@@ -241,11 +241,20 @@
   <section class="card">    
     <h2>SEO Strategy</h2>
     <p class="note">Click to view the full SEO Strategy document.</p>
-
     <button 
       onclick="window.open('strategy/SEO-Strategy.html', '_blank')" 
       style="padding:0.6rem 1rem; background:var(--accent); border:none; border-radius:6px; cursor:pointer; font-size:1rem;">
       Open SEO Strategy
+    </button>
+  </section>
+
+  <section class="card">    
+    <h2>AFL Homepage</h2>
+    <p class="note">Click to preview the new homepage before it goes live.</p>
+    <button 
+      onclick="window.open('afl/index.html', '_blank')" 
+      style="padding:0.6rem 1rem; background:#3E6F73; color:#fff; border:none; border-radius:6px; cursor:pointer; font-size:1rem;">
+      Preview Homepage
     </button>
   </section>
 
@@ -743,6 +752,7 @@
   const firebaseConfig = {
     apiKey: "AIzaSyCBEYKod5Us0h03oRfAhtlimProBFzPgF4",
     authDomain: "afl-dashboard-20d0c.firebaseapp.com",
+    databaseURL: "https://afl-dashboard-20d0c-default-rtdb.firebaseio.com",
     projectId: "afl-dashboard-20d0c",
     storageBucket: "afl-dashboard-20d0c.firebasestorage.app",
     messagingSenderId: "183643628887",
